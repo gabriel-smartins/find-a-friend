@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  postgres-test-db:
+    image: postgres:14-alpine
+    container_name: find-friend-api-test-db
+    restart: always
+
+    ports:
+      - '5433:5432'
+
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: findfriendapi_test
+
+    volumes:
+      - pgdata_test:/data/postgres
+
+volumes:
+  pgdata_test:
+    driver: local
