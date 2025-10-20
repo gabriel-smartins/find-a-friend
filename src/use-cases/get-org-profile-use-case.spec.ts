@@ -11,7 +11,7 @@ describe('Get Org Profile Use Case', () => {
   })
 
   it('should be able to get user profile', async () => {
-    await orgsRepository.create({
+    const orgCreated = await orgsRepository.create({
       name: 'ONG Amigo Fiel',
       email: 'contato@amigofiel.org',
       passwordHash: '123456',
@@ -22,7 +22,7 @@ describe('Get Org Profile Use Case', () => {
     })
 
     const { org } = await sut.execute({
-      email: 'contato@amigofiel.org',
+      id: orgCreated.id,
     })
 
     expect(org.id).toEqual(expect.any(String))
@@ -42,7 +42,7 @@ describe('Get Org Profile Use Case', () => {
 
     await expect(() =>
       sut.execute({
-        email: 'contato@amigofiel2.org',
+        id: 'id-not-existing',
       }),
     ).rejects.toThrow('Resource not found.')
   })

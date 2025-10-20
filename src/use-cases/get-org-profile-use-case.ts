@@ -3,7 +3,7 @@ import type { Org } from '@prisma/client'
 import { ResourceNotFoundError } from './errors/resource-not-found-error.js'
 
 interface GetOrgProfileUseCaseRequest {
-  email: string
+  id: string
 }
 
 interface GetOrgProfileUseCaseResponse {
@@ -14,9 +14,9 @@ export class GetOrgProfileUseCase {
   constructor(private orgsRepository: OrgsRepository) {}
 
   async execute({
-    email,
+    id,
   }: GetOrgProfileUseCaseRequest): Promise<GetOrgProfileUseCaseResponse> {
-    const org = await this.orgsRepository.findByEmail(email)
+    const org = await this.orgsRepository.findById(id)
 
     if (!org) {
       throw new ResourceNotFoundError()
