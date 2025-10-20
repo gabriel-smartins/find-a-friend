@@ -24,6 +24,16 @@ export class InMemoryOrgsRepository implements OrgsRepository {
     return org
   }
 
+  async save(org: Org) {
+    const orgInIndex = this.items.findIndex((item) => item.id === org.id)
+
+    if (orgInIndex >= 0) {
+      this.items[orgInIndex] = org
+    }
+
+    return org
+  }
+
   async findByEmail(email: string) {
     const org = this.items.find((item) => item.email === email)
 
