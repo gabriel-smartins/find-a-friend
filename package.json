@@ -47,9 +47,11 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
+    "@fastify/jwt": "^10.0.0",
     "@prisma/client": "^6.17.1",
     "bcryptjs": "^3.0.2",
     "dotenv": "^17.2.3",
+    "fastify": "^5.6.1",
     "jsonwebtoken": "^9.0.2",
     "prisma": "^6.17.1"
   },
