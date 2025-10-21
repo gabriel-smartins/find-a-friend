@@ -53,4 +53,12 @@ export class InMemoryOrgsRepository implements OrgsRepository {
 
     return org
   }
+
+  async delete(id: string) {
+    const orgIndex = this.items.findIndex((item) => item.id === id)
+
+    if (orgIndex >= 0) {
+      this.items.splice(orgIndex, 1)
+    }
+  }
 }
