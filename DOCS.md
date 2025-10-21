@@ -12,6 +12,10 @@ _Os Requisitos Funcionais descrevem **o que** o sistema deve fazer (as funcional
 
 - **[RF 01]** A ORG deve poder se cadastrar na aplicação (Nome, E-mail, Senha, Endereço, Cidade, CEP, Telefone/WhatsApp).
 - **[RF 02]** A ORG deve poder se autenticar na aplicação (E-mail, Senha).
+- **[RF 03]** A ORG autenticada pode acessar a aba de profile com seus dados (Nome, E-mail, Endereço, Cidade, CEP, Telefone/WhatsApp).
+- **[RF 04]** A ORG autenticada pode atualizar a aba de profile com seus dados (Nome, Endereço, Cidade, CEP, Telefone/WhatsApp).
+- **[RF 05]** A ORG autenticada pode atualizar sua senha.
+- **[RF 06]** A ORG autenticada pode deletar seu profile.
 
 ### Módulo de Animais (PET)
 
