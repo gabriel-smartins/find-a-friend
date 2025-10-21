@@ -4,7 +4,7 @@ import { UpdateOrgProfileUseCase } from './update-org-profile-use-case.js'
 let orgsRepository: InMemoryOrgsRepository
 let sut: UpdateOrgProfileUseCase
 
-describe('Get Org Profile Use Case', () => {
+describe('Update Org Profile Use Case', () => {
   beforeEach(() => {
     orgsRepository = new InMemoryOrgsRepository()
     sut = new UpdateOrgProfileUseCase(orgsRepository)
