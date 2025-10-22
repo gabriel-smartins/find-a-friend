@@ -1,7 +1,7 @@
 import type { OrgsRepository } from '#repositories/orgs-repository'
 import { compare, hash } from 'bcryptjs'
-import { NotAllowedError } from './errors/not-allowed-error.js'
-import { ResourceNotFoundError } from './errors/resource-not-found-error.js'
+import { NotAllowedError } from '../errors/not-allowed-error.js'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error.js'
 
 interface UpdateOrgPasswordUseCaseRequest {
   orgId: string

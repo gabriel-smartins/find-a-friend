@@ -1,7 +1,7 @@
 import type { OrgsRepository } from '#repositories/orgs-repository'
 import type { Org } from '@prisma/client'
 import { hash } from 'bcryptjs'
-import { EmailAlreadyInUseError } from './errors/email-already-in-use-error.js'
+import { EmailAlreadyInUseError } from '../errors/email-already-in-use-error.js'
 
 interface CreateOrgUseCaseRequest {
   name: string

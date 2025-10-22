@@ -1,6 +1,6 @@
 import type { OrgsRepository } from '#repositories/orgs-repository'
 import { sign } from 'jsonwebtoken'
-import { InvalidCredentialsError } from './errors/invalid-credentials-error.js'
+import { InvalidCredentialsError } from '../errors/invalid-credentials-error.js'
 import { compare } from 'bcryptjs'
 
 interface AuthenticateOrgUseCaseRequest {

@@ -1,8 +1,8 @@
 import { InMemoryOrgsRepository } from '#repositories/in-memory/in-memory-orgs-repository'
 import { compare, hash } from 'bcryptjs'
 import { UpdateOrgPasswordUseCase } from './update-org-password-use-case.js'
-import { NotAllowedError } from './errors/not-allowed-error.js'
-import { ResourceNotFoundError } from './errors/resource-not-found-error.js'
+import { NotAllowedError } from '../errors/not-allowed-error.js'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error.js'
 
 let orgsRepository: InMemoryOrgsRepository
 let sut: UpdateOrgPasswordUseCase

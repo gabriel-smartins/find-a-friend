@@ -1,5 +1,5 @@
 import type { OrgsRepository } from '#repositories/orgs-repository'
-import { ResourceNotFoundError } from './errors/resource-not-found-error.js'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error.js'
 
 interface DeleteOrgUseCaseRequest {
   id: string

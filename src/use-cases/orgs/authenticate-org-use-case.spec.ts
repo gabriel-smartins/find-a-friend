@@ -1,7 +1,7 @@
 import { InMemoryOrgsRepository } from '#repositories/in-memory/in-memory-orgs-repository'
 import { hash } from 'bcryptjs'
 import { AuthenticateOrgUseCase } from './authenticate-org-use-case.js'
-import { InvalidCredentialsError } from './errors/invalid-credentials-error.js'
+import { InvalidCredentialsError } from '../errors/invalid-credentials-error.js'
 
 let orgsRepository: InMemoryOrgsRepository
 let sut: AuthenticateOrgUseCase
