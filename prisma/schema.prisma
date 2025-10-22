@@ -50,6 +50,7 @@ model Pet {
   id String @id @default(uuid())
   name String
   description String
+  city String
   age PetAge
   size PetSize
   energyLevel PetEnergyLevel @map("energy_level")
