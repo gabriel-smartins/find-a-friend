@@ -32,4 +32,24 @@ export class InMemoryPetsRepository implements PetsRepository {
 
     return pet
   }
+
+  async save(pet: Pet) {
+    const petInIndex = this.items.findIndex((item) => item.id === pet.id)
+
+    if (petInIndex >= 0) {
+      this.items[petInIndex] = pet
+    }
+
+    return pet
+  }
+
+  async findById(id: string) {
+    const pet = this.items.find((item) => item.id === id)
+
+    if (!pet) {
+      return null
+    }
+
+    return pet
+  }
 }
