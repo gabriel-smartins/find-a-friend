@@ -49,11 +49,12 @@ model Org {
 model Pet {
   id String @id @default(uuid())
   name String
-  description String
+  description String?
   city String
   age PetAge
   size PetSize
   energyLevel PetEnergyLevel @map("energy_level")
+  adoptedAt DateTime? @map("adopted_at")
   org Org @relation(fields: [orgId] , references: [id])
   orgId String @map("org_id")
   createdAt DateTime @default(now()) @map("created_at")
