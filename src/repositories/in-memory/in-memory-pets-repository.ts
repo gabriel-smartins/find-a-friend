@@ -27,6 +27,7 @@ export class InMemoryPetsRepository implements PetsRepository {
       city: data.city,
       orgId: data.orgId,
 
+      adoptedAt: new Date(),
       createdAt: new Date(),
       updatedAt: new Date(),
     }
