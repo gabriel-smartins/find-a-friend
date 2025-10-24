@@ -76,6 +76,8 @@ export class InMemoryPetsRepository implements PetsRepository {
       )
     }
 
+    petsOnCity.filter((pet) => pet.adoptedAt === null)
+
     const petsPaginated = petsOnCity.slice((page - 1) * 20, page * 20)
 
     return petsPaginated
