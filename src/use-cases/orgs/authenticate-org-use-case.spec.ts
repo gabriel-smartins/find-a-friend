@@ -23,16 +23,13 @@ describe('Authenticate Org Use Case', () => {
       phone: '11987654321',
     })
 
-    const token = await sut.execute({
+    const { org } = await sut.execute({
       email: 'contato@amigofiel.org',
       password: '123456',
     })
 
-    expect(token).toEqual(
-      expect.objectContaining({
-        token: expect.any(String),
-      }),
-    )
+    expect(org.name).toEqual('ONG Amigo Fiel')
+    expect(org.email).toEqual('contato@amigofiel.org')
   })
 
   it('should not be able to authenticate with wrong email', async () => {
