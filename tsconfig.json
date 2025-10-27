@@ -49,5 +49,8 @@
     }
   },
 
-  "include": ["src"]
+  "include": [
+    "src/**/*.ts", // Inclui todos os arquivos .ts dentro de src
+    "src/types/**/*.d.ts" // Inclui especificamente seus arquivos de definição
+  ]
 }
