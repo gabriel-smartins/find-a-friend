@@ -1,5 +1,5 @@
 import { InvalidCredentialsError } from '#use-cases/errors/invalid-credentials-error'
-import { makeAuthenticateOrgUseCase } from '#use-cases/factories/make-authenticate-org-use-case'
+import { makeAuthenticateOrgUseCase } from '#use-cases/orgs/factories/make-authenticate-org-use-case'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z, ZodError } from 'zod'
 

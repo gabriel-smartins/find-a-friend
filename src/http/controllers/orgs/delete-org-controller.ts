@@ -1,5 +1,5 @@
 import { ResourceNotFoundError } from '#use-cases/errors/resource-not-found-error'
-import { makeDeleteOrgUseCase } from '#use-cases/factories/make-delete-org-use-case'
+import { makeDeleteOrgUseCase } from '#use-cases/orgs/factories/make-delete-org-use-case'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function deleteOrg(request: FastifyRequest, reply: FastifyReply) {

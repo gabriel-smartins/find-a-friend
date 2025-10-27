@@ -1,6 +1,6 @@
 import { NotAllowedError } from '#use-cases/errors/not-allowed-error'
 import { ResourceNotFoundError } from '#use-cases/errors/resource-not-found-error'
-import { makeUpdateOrgPasswordUseCase } from '#use-cases/factories/make-update-org-password-use-case'
+import { makeUpdateOrgPasswordUseCase } from '#use-cases/orgs/factories/make-update-org-password-use-case'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z, ZodError } from 'zod'
 

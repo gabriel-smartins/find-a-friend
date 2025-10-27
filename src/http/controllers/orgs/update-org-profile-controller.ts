@@ -1,6 +1,6 @@
 import { NotAllowedError } from '#use-cases/errors/not-allowed-error'
 import { ResourceNotFoundError } from '#use-cases/errors/resource-not-found-error'
-import { makeUpdateOrgProfileUseCase } from '#use-cases/factories/make-update-org-profile-use-case'
+import { makeUpdateOrgProfileUseCase } from '#use-cases/orgs/factories/make-update-org-profile-use-case'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z, ZodError } from 'zod'
 

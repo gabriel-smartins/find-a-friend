@@ -1,5 +1,5 @@
 import { EmailAlreadyInUseError } from '#use-cases/errors/email-already-in-use-error'
-import { makeCreateOrgUseCase } from '#use-cases/factories/make-create-org-use-case'
+import { makeCreateOrgUseCase } from '#use-cases/orgs/factories/make-create-org-use-case'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z, ZodError } from 'zod'
 

@@ -1,6 +1,6 @@
 import { NotAllowedError } from '#use-cases/errors/not-allowed-error'
 import { ResourceNotFoundError } from '#use-cases/errors/resource-not-found-error'
-import { makeGetOrgProfileUseCase } from '#use-cases/factories/make-get-org-profile-use-case'
+import { makeGetOrgProfileUseCase } from '#use-cases/orgs/factories/make-get-org-profile-use-case'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function getOrgProfile(
