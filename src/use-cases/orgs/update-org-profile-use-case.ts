@@ -4,11 +4,13 @@ import { ResourceNotFoundError } from '../errors/resource-not-found-error.js'
 
 interface UpdateOrgProfileUseCaseRequest {
   orgId: string
-  name?: string
-  address?: string
-  city?: string
-  zipCode?: string
-  phone?: string
+  data: Partial<{
+    name: string
+    address: string
+    city: string
+    zipCode: string
+    phone: string
+  }>
 }
 
 interface UpdateOrgProfileUseCaseResponse {
@@ -20,11 +22,7 @@ export class UpdateOrgProfileUseCase {
 
   async execute({
     orgId,
-    address,
-    city,
-    name,
-    phone,
-    zipCode,
+    data,
   }: UpdateOrgProfileUseCaseRequest): Promise<UpdateOrgProfileUseCaseResponse> {
     const org = await this.orgsRepository.findById(orgId)
 
@@ -32,12 +30,10 @@ export class UpdateOrgProfileUseCase {
       throw new ResourceNotFoundError()
     }
 
-    org.name = name ?? org.name
-    org.address = address ?? org.address
-    org.city = city ?? org.city
-    org.zipCode = zipCode ?? org.zipCode
-    org.phone = phone ?? org.phone
-    org.updatedAt = new Date()
+    Object.assign(org, {
+      ...data,
+      updatedAt: new Date(),
+    })
 
     const updatedOrg = await this.orgsRepository.save(org)
 

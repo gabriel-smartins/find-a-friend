@@ -1,4 +1,5 @@
 import { InMemoryOrgsRepository } from '#repositories/in-memory/in-memory-orgs-repository'
+import { ResourceNotFoundError } from '#use-cases/errors/resource-not-found-error'
 import { UpdateOrgProfileUseCase } from './update-org-profile-use-case.js'
 
 let orgsRepository: InMemoryOrgsRepository
@@ -21,13 +22,24 @@ describe('Update Org Profile Use Case', () => {
       phone: '11987654321',
     })
 
-    await sut.execute({
+    const { org } = await sut.execute({
       orgId: orgCreated.id,
-      name: 'ONG Amigo Fiel Atualizado',
-      city: 'Rio de Janeiro',
+      data: {
+        name: 'ONG Amigo Fiel Atualizado',
+        city: 'Rio de Janeiro',
+      },
     })
 
-    expect(orgCreated.name).toEqual('ONG Amigo Fiel Atualizado')
-    expect(orgCreated.city).toEqual('Rio de Janeiro')
+    expect(org.name).toEqual('ONG Amigo Fiel Atualizado')
+    expect(org.city).toEqual('Rio de Janeiro')
+  })
+
+  it('should throw if org does not exist', async () => {
+    await expect(() =>
+      sut.execute({
+        orgId: 'non-existent-id',
+        data: { name: 'Fake Org' },
+      }),
+    ).rejects.toBeInstanceOf(ResourceNotFoundError)
   })
 })
