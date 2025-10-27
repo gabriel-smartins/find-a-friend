@@ -1,7 +1,7 @@
 import type { OrgsRepository } from '#repositories/orgs-repository'
-import { sign } from 'jsonwebtoken'
 import { InvalidCredentialsError } from '../errors/invalid-credentials-error.js'
 import { compare } from 'bcryptjs'
+import type { Org } from '@prisma/client'
 
 interface AuthenticateOrgUseCaseRequest {
   email: string
@@ -9,7 +9,7 @@ interface AuthenticateOrgUseCaseRequest {
 }
 
 interface AuthenticateOrgUseCaseResponse {
-  token: string
+  org: Org
 }
 
 export class AuthenticateOrgUseCase {
@@ -31,11 +31,6 @@ export class AuthenticateOrgUseCase {
       throw new InvalidCredentialsError()
     }
 
-    const token = sign({}, process.env.JWT_SECRET as string, {
-      subject: org.id,
-      expiresIn: '1d',
-    })
-
-    return { token }
+    return { org }
   }
 }
