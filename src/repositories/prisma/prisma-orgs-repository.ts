@@ -12,12 +12,14 @@ export class PrismaOrgsRepository implements OrgsRepository {
   }
 
   async save(data: Org) {
+    const { id, ...updateData } = data
+
     const org = await prisma.org.update({
       where: {
-        id: data.id,
+        id,
       },
 
-      data: data,
+      data: updateData,
     })
 
     return org
