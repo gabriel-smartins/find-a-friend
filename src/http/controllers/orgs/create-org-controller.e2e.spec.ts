@@ -13,7 +13,7 @@ describe('Create Org (E2E)', () => {
   it('should be able to create a org', async () => {
     const response = await request(app.server).post('/orgs').send({
       name: 'ONG Adote Já',
-      email: 'contato@adoteja.org',
+      email: 'contato@amigofiel.org',
       password: '123456',
       address: 'Rua dos Girassóis, 123',
       city: 'São Paulo',
