@@ -8,5 +8,7 @@ export default defineConfig({
   plugins: [tsConfigPaths()],
   test: {
     globals: true,
+    include: ['src/**/*.spec.ts'],
+    exclude: ['node_modules', 'dist', 'src/**/*.e2e.spec.ts'],
   },
 })
