@@ -2,7 +2,7 @@ import { app } from '../../../app.js'
 import request from 'supertest'
 
 describe('Authenticate Org (E2E)', () => {
-  beforeEach(async () => {
+  beforeAll(async () => {
     await app.ready()
   })
 

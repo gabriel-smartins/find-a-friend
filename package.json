@@ -4,7 +4,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "//": "--- 6. ROTINA PRINCIPAL DE TESTE (CI) ---",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
     "format": "prettier --write \"src/**/*.ts\"",
@@ -20,7 +19,7 @@
     "test:unit": "vitest",
     "test:unit:ci": "vitest run",
     "test:e2e:up": "docker compose -f docker-compose.test.yml up -d --wait",
-    "test:e2e:down": "docker compose -f docker-compose.test.yml down",
+    "test:e2e:down": "docker compose -f docker-compose.test.yml down -v",
     "test:e2e:migrate": "dotenv -e .env.test -- prisma migrate deploy",
     "test:e2e:run": "npm run test:e2e:up && npm run test:e2e:migrate && vitest run --config ./vitest.config.e2e.ts",
     "test:e2e:watch": "npm run test:e2e:up && npm run test:e2e:migrate && vitest --config ./vitest.config.e2e.ts",
