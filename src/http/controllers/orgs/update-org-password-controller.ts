@@ -28,7 +28,7 @@ export async function updatePassword(
       newPassword,
     })
 
-    return reply.status(200).send()
+    return reply.status(204).send()
   } catch (error) {
     if (error instanceof ZodError) {
       return reply.status(400).send({
