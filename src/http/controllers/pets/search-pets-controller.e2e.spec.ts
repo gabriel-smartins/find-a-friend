@@ -1,6 +1,9 @@
 import { app } from '../../../app.js'
 import request from 'supertest'
-import { createAndAuthenticateOrg, createPet } from '../utils/test-helper.js'
+import {
+  createAndAuthenticateOrg,
+  createPet,
+} from '../../../../utils/test-helper.js'
 
 describe('Search Pets (E2E)', () => {
   beforeAll(async () => {

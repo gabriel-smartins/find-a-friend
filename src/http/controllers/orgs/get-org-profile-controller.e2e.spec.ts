@@ -1,6 +1,6 @@
 import { app } from '../../../app.js'
 import request from 'supertest'
-import { createAndAuthenticateOrg } from '../utils/test-helper.js'
+import { createAndAuthenticateOrg } from '../../../../utils/test-helper.js'
 
 describe('Get Org Profile (E2E)', () => {
   beforeAll(async () => {

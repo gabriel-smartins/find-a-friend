@@ -1,6 +1,6 @@
 import { app } from '../../../app.js'
 import request from 'supertest'
-import { createAndAuthenticateOrg } from '../utils/test-helper.js'
+import { createAndAuthenticateOrg } from '../../../../utils/test-helper.js'
 import { PetAge, PetEnergyLevel, PetSize } from '@prisma/client'
 
 describe('Register a Pet (E2E)', () => {
