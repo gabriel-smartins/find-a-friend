@@ -6,12 +6,14 @@ import { NotAllowedError } from '#use-cases/errors/not-allowed-error'
 interface UpdatePetUseCaseRequest {
   orgId: string
   petId: string
-  name?: string
-  description?: string
-  city?: string
-  age?: PetAge
-  size?: PetSize
-  energyLevel?: PetEnergyLevel
+  data: Partial<{
+    name?: string
+    description?: string
+    city?: string
+    age?: PetAge
+    size?: PetSize
+    energyLevel?: PetEnergyLevel
+  }>
 }
 
 interface UpdatePetUseCaseResponse {
@@ -24,12 +26,7 @@ export class UpdatePetUseCase {
   async execute({
     orgId,
     petId,
-    name,
-    description,
-    city,
-    age,
-    size,
-    energyLevel,
+    data,
   }: UpdatePetUseCaseRequest): Promise<UpdatePetUseCaseResponse> {
     const pet = await this.petsRepository.findById(petId)
 
@@ -41,13 +38,10 @@ export class UpdatePetUseCase {
       throw new NotAllowedError()
     }
 
-    pet.name = name ?? pet.name
-    pet.description = description ?? pet.description
-    pet.city = city ?? pet.city
-    pet.age = age ?? pet.age
-    pet.size = size ?? pet.size
-    pet.energyLevel = energyLevel ?? pet.energyLevel
-    pet.updatedAt = new Date()
+    Object.assign(pet, {
+      ...data,
+      updatedAt: new Date(),
+    })
 
     const updatedPet = await this.petsRepository.save(pet)
 
