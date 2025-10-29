@@ -27,8 +27,10 @@ describe('Update Pet Use Case', () => {
     const { pet: updatedPet } = await sut.execute({
       petId: petCreated.id,
       orgId: petCreated.orgId,
-      name: 'Rexstone',
-      city: 'Rio de Janeiro',
+      data: {
+        name: 'Rexstone',
+        city: 'Rio de Janeiro',
+      },
     })
 
     expect(petCreated.name).toEqual('Rexstone')
@@ -54,8 +56,10 @@ describe('Update Pet Use Case', () => {
       sut.execute({
         petId: 'Does not exists pet-id',
         orgId: petCreated.orgId,
-        name: 'Rexstone',
-        city: 'Rio de Janeiro',
+        data: {
+          name: 'Rexstone',
+          city: 'Rio de Janeiro',
+        },
       }),
     ).rejects.instanceOf(ResourceNotFoundError)
   })
@@ -75,8 +79,10 @@ describe('Update Pet Use Case', () => {
       sut.execute({
         petId: petCreated.id,
         orgId: 'Inexisting Org-id',
-        name: 'Rexstone',
-        city: 'Rio de Janeiro',
+        data: {
+          name: 'Rexstone',
+          city: 'Rio de Janeiro',
+        },
       }),
     ).rejects.instanceOf(NotAllowedError)
   })
