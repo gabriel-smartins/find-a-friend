@@ -1,5 +1,6 @@
 import type { FastifyInstance } from 'fastify'
 import request from 'supertest'
+import { PetAge, PetEnergyLevel, PetSize } from '@prisma/client'
 
 export async function createAndAuthenticateOrg(app: FastifyInstance) {
   await request(app.server).post('/orgs').send({
@@ -20,4 +21,21 @@ export async function createAndAuthenticateOrg(app: FastifyInstance) {
   const { token } = authResponse.body
 
   return { token }
+}
+
+export async function createPet(app: FastifyInstance, token: string) {
+  const createPetResponse = await request(app.server)
+    .post('/pets')
+    .set('Authorization', `Bearer ${token}`)
+    .send({
+      name: 'Rex',
+      description: 'A cute puppy',
+      age: PetAge.PUPPY,
+      size: PetSize.SMALL,
+      energyLevel: PetEnergyLevel.HIGH,
+      city: 'Rio de Janeiro',
+    })
+
+  const { id: petId } = createPetResponse.body
+  return { petId }
 }
