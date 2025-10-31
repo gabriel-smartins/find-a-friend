@@ -80,3 +80,28 @@ Build find-a-friend from the source and install dependencies:
     npm install
     ```
 ---
+
+## Usage
+Run the project with:
+
+Using **docker**:
+```sh
+docker run -it {image_name}
+```
+
+Using **npm**:
+```sh
+npm run dev
+```
+
+---
+
+## Testing
+Testing
+Find-a-friend uses the Vitest test framework. Run the test suite with:
+```sh
+npm run test
+```
+
+
+
